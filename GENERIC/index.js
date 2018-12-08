@@ -51,6 +51,12 @@ async function setup() {
 
   //call server once at start, just to init the grid
   const cityIOjson = await getCityIO(cityIOtableURL);
+
+  console.log(
+    "this table is set to the follwing mapping",
+    Object.values(cityIOjson.header.mapping)[0]
+  );
+
   // get grid size
   var gridSizeCols = cityIOjson.header.spatial.ncols;
   var gridSizeRows = cityIOjson.header.spatial.nrows;
