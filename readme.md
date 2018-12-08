@@ -18,7 +18,7 @@ Modules are built to represent:
 
 This is a boilerplate table module that reads cityIO data, parse it into visual grid and display it on a keystone-able div. It's meant for testing of your cityIO sent data and for further development.
 
-![](https://user-images.githubusercontent.com/14296774/49689962-3b168d80-faf7-11e8-9e40-020ba5168564.png)
+![]()
 
 ### Usage
 
@@ -39,4 +39,4 @@ It converts 4x4 lego bricks color coded as this: "0000000000000000","11111111111
 
 This is a project-specific table module. MoCho (short for "Mobility Choices") is a CityScope module focused on mobility choices and societal impacts. This tool helps predict the choices of mobility modes made at the individual level throughout the entire Boston Metro area.
 
-![](https://dam-prod.media.mit.edu/thumb/2018/10/30/bg.gif.1400x1400.gif)
+![]()
