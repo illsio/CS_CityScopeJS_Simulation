@@ -63,9 +63,8 @@ export async function update() {
  * @param jsonData cityIO API endpoint data
  */
 async function renderUpdate(jsonData) {
-  // console.log(Storage.map.transform._zoom);
-
   let gridCellsArray = Storage.gridCellsArray;
+
   for (let i = 0; i < jsonData.grid.length; i++) {
     // gridCellsArray[i].innerHTML = i;
 
