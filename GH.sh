@@ -2,7 +2,7 @@
 # clear dist folder 
 sudo rm -rf dist
 # build the dist for public url 
-sudo parcel build CSjs_MobCho/index.html --public-url http://cityscope.media.mit.edu/CS_CityScopeJS_Simulation/
+sudo parcel build CSjs_MobCho/index.html --public-url https://cityscope.media.mit.edu/CS_CityScopeJS_Simulation/
 
 # make sure to add dist to commit if .gitignored 
 git add dist -f
