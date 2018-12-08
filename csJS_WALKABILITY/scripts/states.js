@@ -2,9 +2,9 @@
 import "babel-polyfill";
 import { remapCol } from "./modules";
 import { drawCell } from "./modules";
-import * as PEDS from "../GRID/peds";
+import * as PEDS from "./peds";
 
-var colorsHold = ["#ed5085", "#fdcaa2", "#76a075", "#aceaf7", "#afafaf"];
+var colorsHold = ["#264653", "#2A9D8F", "#E9C46A", "#F4A261", "#E76F51"];
 /////////////// grid info  ///////////////////////
 
 export function gridInfo(grid, cityIOdata, textHolder) {

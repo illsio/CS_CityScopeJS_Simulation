@@ -1,4 +1,5 @@
 //keep for now
+/*
 var allCols = [
   "rgb(237, 80, 102)",
   "rgb(244, 130, 125)",
@@ -225,3 +226,5 @@ function render() {
   group.rotation.y = time * 0.1;
   renderer.render(scene, camera);
 }
+
+*/

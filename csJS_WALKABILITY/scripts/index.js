@@ -31,13 +31,13 @@ https://github.com/RELNO]
 
 //fixes Uncaught ReferenceError: regeneratorRuntime is not defined
 import "babel-polyfill";
-import { getCityIO } from "./LOGIC/modules";
-import * as threeSetup from "./GRID/threeSetup";
-import { gridInfo } from "./LOGIC/states";
-import { landUseMap } from "./LOGIC/states";
-import { walkabilityMap } from "./LOGIC/states";
-import { info } from "./UI/ui";
-import { Maptastic } from "../scripts/UI/maptastic";
+import { getCityIO } from "./modules";
+import * as threeSetup from "./threeSetup";
+import { gridInfo } from "./states";
+import { landUseMap } from "./states";
+import { walkabilityMap } from "./states";
+import { info } from "./ui";
+import { Maptastic } from "./maptastic";
 
 //
 // import * as radarChart from "./radar";
