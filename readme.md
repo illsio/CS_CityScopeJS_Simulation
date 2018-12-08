@@ -18,7 +18,7 @@ Modules are built to represent:
 
 This is a boilerplate table module that reads cityIO data, parse it into visual grid and display it on a keystone-able div. It's meant for testing of your cityIO sent data and for further development.
 
-![]()
+![](https://raw.githubusercontent.com/wiki/CityScope/CS_CityScopeJS_Simulation/img/GENERIC.png)
 
 ### Usage
 
@@ -31,12 +31,18 @@ This is a boilerplate table module that reads cityIO data, parse it into visual 
 ## Walkability Module
 
 This module include an html5 3D view of walkability of a zone:
-It converts 4x4 lego bricks color coded as this: "0000000000000000","1111111111111111","0000000011111111","1111111100000000", into grid type "P","W",L,"G", respectively, and show these value as overlay on the map.
+It converts 4x4 lego bricks color coded as this:
 
----
+```
+ "0000000000000000","1111111111111111","0000000011111111","1111111100000000"
+```
+
+into grid type "P","W",L,"G", respectively, and show these value as overlay on the map.
+
+## ![](https://raw.githubusercontent.com/wiki/CityScope/CS_CityScopeJS_Simulation/img/WALK.gif)
 
 ## MoCho: Mobility Choices Module
 
 This is a project-specific table module. MoCho (short for "Mobility Choices") is a CityScope module focused on mobility choices and societal impacts. This tool helps predict the choices of mobility modes made at the individual level throughout the entire Boston Metro area.
 
-![]()
+![](https://raw.githubusercontent.com/wiki/CityScope/CS_CityScopeJS_Simulation/img/MOCHO.gif)
