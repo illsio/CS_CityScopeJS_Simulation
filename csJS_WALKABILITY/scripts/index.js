@@ -44,7 +44,7 @@ import { Maptastic } from "../scripts/UI/maptastic";
 // console.log(radarChart);
 
 // global vars for fun
-let tableName = "cityscopeJSwalk";
+let tableName = "CityScopeJS";
 let cityIOtableURL =
   "https://cityio.media.mit.edu/api/table/" + tableName.toString();
 
