@@ -40,8 +40,8 @@ async function setup() {
   //GET CITYIO
   var tableName = window.location.search.substring(1);
   if (tableName == "") {
-    console.log("using default cityIO endpoint @ CityScopeJS");
-    tableName = "CityScopeJS";
+    console.log("using default cityIO endpoint @ cityscopejs");
+    tableName = "cityscopejs";
   }
   let cityIOtableURL =
     "https://cityio.media.mit.edu/api/table/" + tableName.toString();

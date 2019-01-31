@@ -45,4 +45,6 @@ into grid type "P","W",L,"G", respectively, and show these value as overlay on t
 
 This is a project-specific table module. MoCho (short for "Mobility Choices") is a CityScope module focused on mobility choices and societal impacts. This tool helps predict the choices of mobility modes made at the individual level throughout the entire Boston Metro area.
 
+This module is deployed to `Github Pages [GH-Pages branch]` using `GH.sh`
+
 ![](https://raw.githubusercontent.com/wiki/CityScope/CS_CityScopeJS_Simulation/img/MOCHO.gif)
