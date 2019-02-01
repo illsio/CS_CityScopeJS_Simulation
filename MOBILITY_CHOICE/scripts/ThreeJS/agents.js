@@ -3,7 +3,7 @@ import * as texPath from "../ThreeJS/flare.png";
 
 export function callAgents(scene, sizeX, sizeY) {
   //add pedestrians per grid object
-  let agents = makeAgents(sizeX, sizeY, [0.2, 0.5, 0.1, 0.2], 5000, 7, 1, 300);
+  let agents = makeAgents(sizeX, sizeY, [0.2, 0.5, 0.1, 0.2], 2000, 10, 1, 300);
   scene.add(agents);
 }
 function makeAgents(
@@ -26,6 +26,15 @@ function makeAgents(
   var texture = new THREE.TextureLoader().load(texPath.default);
   //ratio of particles to num of neighbors
   var particles = maxparticles;
+
+  // define agents start point
+  let starting_points_per_mode = [
+    [0, 0],
+    [0, sizeY],
+    [sizeX, sizeY / 2],
+    [sizeX / 2, sizeY],
+    [sizeX, sizeY]
+  ];
 
   for (var i = 0; i < particles; i++) {
     let colListRnd = Math.floor(Math.random() * colors.length);
@@ -80,6 +89,7 @@ function makeAgents(
   // return agents for adding to scene
   return agents;
   // animate
+
   function animate() {
     requestAnimationFrame(animate);
     updateAgentsPositions();
@@ -88,48 +98,42 @@ function makeAgents(
   }
 
   ////////////////////////////////////////
+
   // find random pos to spawn out of active cells array
-
   function updateAgentsPositions() {
-    // let slider = Storage.slider;
-
-    let rndStPntArr = [
-      [0, Math.random() * sizeY],
-      [Math.random() * sizeX, 0],
-      [Math.random() * sizeX, sizeY],
-      [sizeX, Math.random() * sizeY]
-    ];
-
     let counter = 0;
-    let destPnt;
 
     //run through location array [x,y,z,x,y,z..]
     //of all agents in this cell
-    for (let i = 0; i < posArr.length; i = i + 3) {
-      destPnt = Storage.agentSpawnArr[counter];
 
-      //set bounderies
+    for (let i = 0; i < posArr.length; i = i + 3) {
+      // where should this agent go
+      let destPnt = Storage.agentSpawnArr[counter];
+
+      // what is the type of this agent
+      let agent_type = typesBufferArr[counter];
+
+      // console.log(i, counter, agent_type);
+
+      //set bounderies for restart
       if (
         posArr[i] <= destPnt.x + buffer &&
         posArr[i] >= destPnt.x - buffer &&
         posArr[i + 2] <= destPnt.z + buffer &&
         posArr[i + 2] >= destPnt.z - buffer
       ) {
-        //renew position after spwan
+        //renew position after spwan at random position
 
-        let rndStPnt =
-          rndStPntArr[Math.floor(Math.random() * rndStPntArr.length)];
-
-        posArr[i] = rndStPnt[0];
-        posArr[i + 2] = rndStPnt[1];
+        posArr[i] = starting_points_per_mode[agent_type][0];
+        posArr[i + 2] = starting_points_per_mode[agent_type][1];
       } else {
         //speed and dir of move
         let angleDeg =
           (Math.atan2(destPnt.x - posArr[i], destPnt.z - posArr[i + 2]) * 180) /
           Math.PI;
-        posArr[i] += (Math.sin(angleDeg) / speed) * (1 + typesBufferArr[i / 3]);
-        posArr[i + 2] +=
-          (Math.cos(angleDeg) / speed) * (1 + typesBufferArr[i / 3]);
+
+        posArr[i] += (Math.sin(angleDeg) / speed) * (1 + typesBufferArr[i]);
+        posArr[i + 2] += (Math.cos(angleDeg) / speed) * (1 + typesBufferArr[i]);
       }
       //count through the Storage.agentSpawnArr for random locations
       if (counter < Storage.agentSpawnArr.length - 1) {
