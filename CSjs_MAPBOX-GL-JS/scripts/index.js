@@ -58,15 +58,15 @@ async function init() {
 
   console.log("cityIO first read", Storage.cityIOdata);
 
-  let mapDIV = document.querySelector("#mapDIV mapboxgl-map");
-  // maptastic the div
-  Maptastic(mapDIV);
-
   //run the update
   window.setInterval(update, interval);
 
   //make the mapbox gl base map
   makeMap();
+
+  let mapDIV = document.querySelector("#mapDIV");
+  // maptastic the div
+  Maptastic(mapDIV);
 }
 
 //start applet
@@ -103,9 +103,9 @@ function makeMap() {
     style: "mapbox://styles/relnox/cjs2jn1vk1ue51fqt6myarc90",
     // "mapbox://styles/mapbox/dark-v9",
     center: [scence_origin_position[0], scence_origin_position[1] + 0.002],
-    bearing: 180,
-    pitch: 50,
-    zoom: 15
+    bearing: 0,
+    pitch: 0,
+    zoom: 13
   });
 
   map.on("style.load", function() {
@@ -124,6 +124,7 @@ function makeMap() {
   function onAdd(map, mbxContext) {
     window.threebox = new Threebox(map, mbxContext);
     threebox.setupDefaultLights();
+    console.log(threebox);
 
     // adds the 3d cityscope gemoerty
 
