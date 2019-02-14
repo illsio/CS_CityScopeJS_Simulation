@@ -1,6 +1,7 @@
 # CityScopeJS Table Simulation Modules
 
-This repo contains several examples for CityScopeJS tables for web/browser environment. These modules can be used 'out of the box' with any modern web browser. Modules are designed to work best with [CityScopeJS](https://github.com/CityScope/CS_cityscopeJS) but should accept any cityIO data if properly structured.
+This repo contains a few boilerplate examples for CityScopeJS tables in web/browser environment. These modules should run 'out of the box' with any modern web browser. Modules are designed to work best with [CityScopeJS](https://github.com/CityScope/CS_cityscopeJS) but should accept any cityIO data if properly structured.
+
 Modules are built to represent:
 
 - CityScope grid retrieved from cityIO server on interval
@@ -14,17 +15,9 @@ Modules are built to represent:
 
 ---
 
-## Generic CityScopeJS Table-top Module
+## CityScopeJS ThreeJS+MAPBOX GL-JS
 
-This is a boilerplate table module that reads cityIO data, parse it into visual grid and display it on a keystone-able div. It's meant for testing of your cityIO sent data and for further development.
-
-![](https://raw.githubusercontent.com/wiki/CityScope/CS_CityScopeJS_Simulation/img/GENERIC.png)
-
-### Usage
-
-- Clone, build and run using `parcel index.html`
-- Add your cityIO endpoint table name after the URL `http://your.domian.end.point/?__YOUR_TABLE_NAME__` to retrieve specific table instance
-- Use `shift+z` to start projection mapping functionality
+WIP
 
 ---
 
@@ -41,10 +34,18 @@ into grid type "P","W",L,"G", respectively, and show these value as overlay on t
 
 ## ![](https://raw.githubusercontent.com/wiki/CityScope/CS_CityScopeJS_Simulation/img/WALK.gif)
 
-## MoCho: Mobility Choices Module
+---
 
-This is a project-specific table module. MoCho (short for "Mobility Choices") is a CityScope module focused on mobility choices and societal impacts. This tool helps predict the choices of mobility modes made at the individual level throughout the entire Boston Metro area.
+## CityScopeJS Table-top Module - Vanilla Js & ES6
 
-This module is deployed to `Github Pages [GH-Pages branch]` using `GH.sh`
+This is a boilerplate table module that reads cityIO data, parse it into visual grid and display it on a keystone-able div. It's meant for testing of your cityIO sent data and for further development.
 
-![](https://raw.githubusercontent.com/wiki/CityScope/CS_CityScopeJS_Simulation/img/MOCHO.gif)
+![](https://raw.githubusercontent.com/wiki/CityScope/CS_CityScopeJS_Simulation/img/GENERIC.png)
+
+### Usage
+
+- Clone, build and run using `parcel index.html`
+- Add your cityIO endpoint table name after the URL `http://your.domian.end.point/?__YOUR_TABLE_NAME__` to retrieve specific table instance
+- Use `shift+z` to start projection mapping functionality
+
+---

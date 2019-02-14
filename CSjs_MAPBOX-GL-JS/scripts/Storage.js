@@ -14,14 +14,6 @@ class Storage {
     this._cityIOurl = value;
   }
 
-  //cityIO url
-  get slider() {
-    return this._slider;
-  }
-  set slider(value) {
-    this._slider = value;
-  }
-
   //map obj
   get map() {
     return this._map;
@@ -35,6 +27,14 @@ class Storage {
     return this._cityIOdata;
   }
   set cityIOdata(value) {
+    this._cityIOdata = value;
+  }
+
+  //cityIO data
+  get cityIOdata_OLD() {
+    return this._cityIOdata;
+  }
+  set cityIOdata_OLD(value) {
     this._cityIOdata = value;
   }
 
@@ -52,14 +52,6 @@ class Storage {
   }
   set threeText(value) {
     this._threeText = value;
-  }
-
-  //agentSpawnArr
-  get agentSpawnArr() {
-    return this._agentSpawnArr;
-  }
-  set agentSpawnArr(value) {
-    this._agentSpawnArr = value;
   }
 }
 
