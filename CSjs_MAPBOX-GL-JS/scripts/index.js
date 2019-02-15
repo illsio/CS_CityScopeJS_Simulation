@@ -326,8 +326,8 @@ function update_grid_from_cityio() {
         array_of_types_and_colors[cityIOdata.grid[i]].height + 1;
       thisCell.scale.z = this_cell_height;
       thisCell.position.z = this_cell_height / 2;
-      thisCell.scale.x = 1;
-      thisCell.scale.y = 1;
+      // reset the scale
+
       //cell's text
       textHolder.children[i].text = i;
       // array_of_types_and_colors[cityIOdata.grid[i]].type;
@@ -335,8 +335,6 @@ function update_grid_from_cityio() {
     } else {
       // hide the non-read pixels undergound
       thisCell.position.z = 0;
-      thisCell.scale.x = 0.25;
-      thisCell.scale.y = 0.25;
     }
   }
 }
