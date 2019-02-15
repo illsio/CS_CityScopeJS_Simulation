@@ -322,13 +322,12 @@ function update_grid_from_cityio() {
       thisCell.material.color.set(
         array_of_types_and_colors[cityIOdata.grid[i]].color
       );
-
       let this_cell_height =
         array_of_types_and_colors[cityIOdata.grid[i]].height + 1;
       thisCell.scale.z = this_cell_height;
       thisCell.position.z = this_cell_height / 2;
-      thisCell.material.opacity = 0.6;
-
+      thisCell.scale.x = 1;
+      thisCell.scale.y = 1;
       //cell's text
       textHolder.children[i].text = i;
       // array_of_types_and_colors[cityIOdata.grid[i]].type;
