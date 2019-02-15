@@ -317,6 +317,8 @@ function update_grid_from_cityio() {
     let thisCell = grid.children[i];
     //clear the text obj
     textHolder.children[i].text = " ";
+    thisCell.position.z = 0;
+    thisCell.scale.z = 1;
 
     if (cityIOdata.grid[i] !== -1) {
       thisCell.material.color.set(
@@ -326,6 +328,7 @@ function update_grid_from_cityio() {
         array_of_types_and_colors[cityIOdata.grid[i]].height + 1;
       thisCell.scale.z = this_cell_height;
       thisCell.position.z = this_cell_height / 2;
+
       // reset the scale
 
       //cell's text
@@ -335,6 +338,7 @@ function update_grid_from_cityio() {
     } else {
       // hide the non-read pixels undergound
       thisCell.position.z = 0;
+      thisCell.material.color.set("rgb(0,0,0)");
     }
   }
 }
