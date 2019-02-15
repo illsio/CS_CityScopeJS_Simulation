@@ -22,8 +22,8 @@
       }
     },
     "spatial": {
-      "ncols": 80,
-      "nrows": 25,
+      "ncols": 72,
+      "nrows": 24,
       "physical_longitude": 53.5369,
       "physical_latitude": 10.00748,
       "longitude": 53.536898,

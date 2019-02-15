@@ -88,16 +88,17 @@ function makeMap() {
   // table physical loction
   let table_lat = cityIOdata.header.spatial.latitude;
   let table_lon = cityIOdata.header.spatial.longitude;
-
-  var mapDIV = document.createElement("div");
-  mapDIV.className = "mapDIV";
-  mapDIV.id = "mapDIV";
-  document.body.appendChild(mapDIV);
-
+  // define the mapbox div element
+  var mapbox_dom_div = document.createElement("div");
+  mapbox_dom_div.className = "mapDIV";
+  mapbox_dom_div.id = "mapDIV";
+  document.body.appendChild(mapbox_dom_div);
+  // should be better hideen ..
   mapboxgl.accessToken =
     "pk.eyJ1IjoicmVsbm94IiwiYSI6ImNpa2VhdzN2bzAwM2t0b2x5bmZ0czF6MzgifQ.KtqxBH_3rkMaHCn_Pm3Pag";
+  // set the map origin
   var scence_origin_position = [table_lat, table_lon, 0];
-
+  // make the map itself
   var map = new mapboxgl.Map({
     container: "mapDIV",
     style: "mapbox://styles/relnox/cjs5fbcl40prk1fkagpti0h8h",
@@ -149,6 +150,35 @@ function makeMap() {
     // add the scene objects to storage for later update
     Storage.threeGrid = threebox.scene.children[0].children[1].children[0];
   }
+
+  function rotateCamera(angle) {
+    // clamp the rotation between 0 -360 degrees
+    // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
+    map.rotateTo(angle, { duration: 200 });
+
+    if (angle !== 0)
+      map.flyTo({
+        center: [scence_origin_position[0], scence_origin_position[1]],
+        bearing: angle,
+        pitch: 0,
+        zoom: 15
+      });
+  }
+
+  document
+    .getElementById("listing-group")
+    .addEventListener("change", function(e) {
+      if (e.target.checked) {
+        // Start the animation.
+        rotateCamera(0);
+      } else {
+        // Start the animation.
+        //converted 35deg to radians in an ugly way
+
+        rotateCamera(-cityIOdata.header.spatial.rotation);
+      }
+    });
+
   Storage.map = map;
 }
 
@@ -306,6 +336,8 @@ function update_grid_from_cityio() {
     } else {
       // hide the non-read pixels undergound
       thisCell.position.z = 0;
+      thisCell.scale.x = 0.25;
+      thisCell.scale.y = 0.25;
     }
   }
 }
