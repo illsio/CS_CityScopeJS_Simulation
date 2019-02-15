@@ -100,8 +100,8 @@ function makeMap() {
 
   var map = new mapboxgl.Map({
     container: "mapDIV",
-    style: "mapbox://styles/relnox/cjs55dgck0gnh1frrmo4ecs2o",
-    // mapbox://styles/relnox/cjs55hrkv11x61fp4h9bslg5j
+    style: "mapbox://styles/relnox/cjs5fbcl40prk1fkagpti0h8h",
+    //  "mapbox://styles/relnox/cjs55hrkv11x61fp4h9bslg5j",
     // "mapbox://styles/mapbox/dark-v9",
     center: [scence_origin_position[0], scence_origin_position[1]],
     bearing: 0,
