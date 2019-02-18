@@ -33,7 +33,7 @@ export function create_threeJS_grid_form_cityIO() {
       );
       //make material for each cell
       material = new THREE.MeshPhongMaterial({
-        color: "red"
+        color: "white"
       });
       //make mesh for cell
       this_mesh = new THREE.Mesh(geometry, material);

@@ -6,12 +6,9 @@ import "babel-polyfill";
  * controls the cityIO streeam
  */
 export async function update() {
-  //temp solution to call this here
-  update_simulation();
-  // get cityIO url from storage
-  let cityIOtableURL = Storage.cityIOurl;
+  // get cityIO url from storage and
   // put cityIO data to storage after it's updated
-  Storage.cityIOdata = await getCityIO(cityIOtableURL);
+  Storage.cityIOdata = await getCityIO(Storage.cityIOurl);
 
   // check for new cityIO data stream
   if (
@@ -26,6 +23,27 @@ export async function update() {
     //update the grid props
     update_grid_from_cityio();
   }
+
+  //temp solution to call this here
+  update_simulation();
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * get cityIO method [uses polyfill]
+ * @param cityIOtableURL cityIO API endpoint URL
+ */
+export async function getCityIO(url) {
+  // let cityIOtableURL = Storage.cityIOurl;
+
+  // console.log("trying to fetch " + cityIOtableURL);
+  return fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(cityIOdata) {
+      // console.log("got cityIO table at " + cityIOdata.meta.timestamp);
+      return cityIOdata;
+    });
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,25 +70,6 @@ export async function update_simulation() {
   }
 
   Storage.map.getSource("simData").setData(sumo_to_geojson(sim_data_json));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-/**
- * get cityIO method [uses polyfill]
- * @param cityIOtableURL cityIO API endpoint URL
- */
-export async function getCityIO(url) {
-  // let cityIOtableURL = Storage.cityIOurl;
-
-  // console.log("trying to fetch " + cityIOtableURL);
-  return fetch(url)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(cityIOdata) {
-      // console.log("got cityIO table at " + cityIOdata.meta.timestamp);
-      return cityIOdata;
-    });
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,7 +126,7 @@ export function update_grid_from_cityio() {
       thisCell.scale.z = this_cell_height;
       thisCell.position.z = this_cell_height / 2;
     } else {
-      // hide the non-read pixels undergound
+      // black outs the non-read pixels
       thisCell.position.z = 0;
       thisCell.material.color.set("rgb(0,0,0)");
     }

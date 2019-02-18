@@ -82,11 +82,32 @@ export function makeMap() {
 
     if (angle !== 0)
       map.flyTo({
-        center: [scence_origin_position[0], scence_origin_position[1]],
+        center: find_middle_of_model(scence_origin_position, -600, 1300),
         bearing: angle,
         pitch: 0,
         zoom: 15
       });
+  }
+
+  function find_middle_of_model(
+    scence_origin_position,
+    offest_east,
+    offest_north
+  ) {
+    //Earth’s radius, sphere
+    let earth_radius = 6378137;
+
+    //Coordinate offsets in radians
+    let dLat = offest_north / earth_radius;
+    let dLon =
+      offest_east /
+      (earth_radius * Math.cos((Math.PI * scence_origin_position[0]) / 180));
+
+    //OffsetPosition, decimal degrees
+    let latO = scence_origin_position[0] + (dLat * 180) / Math.PI;
+    let lonO = scence_origin_position[1] + (dLon * 180) / Math.PI;
+
+    return [latO, lonO];
   }
 
   //bring map to projection postion
