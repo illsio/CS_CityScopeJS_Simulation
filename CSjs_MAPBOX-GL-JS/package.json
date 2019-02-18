@@ -1,7 +1,7 @@
 {
-  "name": "CSTable",
+  "name": "csjs_sumapbox3js",
   "version": "1.0.0",
-  "description": "Choice Models Frontend",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "parcel index.html"
@@ -12,8 +12,6 @@
   "dependencies": {
     "@types/three": "^0.92.25",
     "babel-polyfill": "^6.26.0",
-    "lib": "^4.0.0",
-    "libs": "^0.1.2",
     "mapbox-gl": "^0.53.0",
     "regenerator-runtime": "^0.12.0",
     "three": "^0.97.0",
