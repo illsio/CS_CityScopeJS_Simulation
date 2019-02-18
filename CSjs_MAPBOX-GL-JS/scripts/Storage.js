@@ -38,6 +38,14 @@ class Storage {
     this._cityIOdata = value;
   }
 
+  //sim data
+  get simData() {
+    return this._simData;
+  }
+  set simData(value) {
+    this._simData = value;
+  }
+
   //threeJs grid
   get threeGrid() {
     return this._threeGrid;
