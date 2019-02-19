@@ -6,6 +6,9 @@ import "babel-polyfill";
  * controls the cityIO streeam
  */
 export async function update() {
+  //temp solution to call this here
+  update_simulation();
+
   // get cityIO url from storage and
   // put cityIO data to storage after it's updated
   Storage.cityIOdata = await getCityIO(Storage.cityIOurl);
@@ -23,9 +26,6 @@ export async function update() {
     //update the grid props
     update_grid_from_cityio();
   }
-
-  //temp solution to call this here
-  update_simulation();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
