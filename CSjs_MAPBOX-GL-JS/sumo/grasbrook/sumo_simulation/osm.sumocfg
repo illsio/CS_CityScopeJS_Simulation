@@ -6,7 +6,7 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <time>
-        <!-- <step-length value="0" /> -->
+        <step-length value="10" />
     </time>
 
 

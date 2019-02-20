@@ -5,6 +5,7 @@
 
 import optparse
 from sumolib import checkBinary  # Checks for the binary in environ vars
+from sumolib import net
 import traci
 import os
 import sys
@@ -28,7 +29,7 @@ def cityio_post_json():
     global vahicles_data_global_var
     while True:
 
-        time.sleep(0.15)
+        time.sleep(0.25)
         # defining the api-endpoint
         CITYIO_ENDPOINT = "https://cityio.media.mit.edu/api/table/update/grasbrook_sim"
         json_data_struct = {"objects": json.dumps(
@@ -45,6 +46,7 @@ vahicles_data_global_var = 'Wait for it...'
 
 
 def run():  # contains TraCI control loop
+
     # step counter
     step = 0
     while traci.simulation.getMinExpectedNumber() > 0:
@@ -78,13 +80,18 @@ if __name__ == "__main__":
     else:
         sumoBinary = checkBinary('sumo-gui')
 
-    # traci starts sumo as a subprocess and then this script connects and runs
 
+# n = net.readNet('sumo_simulation/osm.net.xml')
+# # retrieve the coordinate of a node based on its ID
+# print(n)
+
+# traci starts sumo as a subprocess and then this script connects and runs
 traci_options = [sumoBinary, "-c", "sumo_simulation/osm.sumocfg"]
 traci.start(traci_options)
 
 
 thread = threading.Thread(target=cityio_post_json)
 thread.start()
+
 
 run()
