@@ -29,7 +29,7 @@ def cityio_post_json():
     global vahicles_data_global_var
     while True:
 
-        time.sleep(0.25)
+        time.sleep(0.2)
         # defining the api-endpoint
         CITYIO_ENDPOINT = "https://cityio.media.mit.edu/api/table/update/grasbrook_sim"
         json_data_struct = {"objects": json.dumps(
