@@ -8,7 +8,7 @@ import "babel-polyfill";
 export async function update() {
   //temp solution to call this here
   //
-  // update_simulation();
+  update_simulation();
 
   // get cityIO url from storage and
   // put cityIO data to storage after it's updated
