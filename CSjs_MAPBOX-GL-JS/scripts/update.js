@@ -121,12 +121,12 @@ export function update_grid_from_cityio() {
     thisCell.position.z = 0;
     thisCell.scale.z = 1;
 
-    if (cityIOdata.grid[i][0] !== -1) {
+    if (cityIOdata.grid[i] !== -1) {
       thisCell.material.color.set(
-        array_of_types_and_colors[cityIOdata.grid[i][0]].color
+        array_of_types_and_colors[cityIOdata.grid[i].color
       );
       let this_cell_height =
-        array_of_types_and_colors[cityIOdata.grid[i][0]].height + 1;
+        array_of_types_and_colors[cityIOdata.grid[i].height + 1;
       thisCell.scale.z = this_cell_height;
       thisCell.position.z = this_cell_height / 2;
     } else {
