@@ -86,7 +86,7 @@ if __name__ == "__main__":
 # print(n)
 
 # traci starts sumo as a subprocess and then this script connects and runs
-traci_options = [sumoBinary, "-c", "sumo_simulation/osm.sumocfg"]
+traci_options = [sumoBinary, "-c", "simulation/osm.sumocfg"]
 traci.start(traci_options)
 
 
