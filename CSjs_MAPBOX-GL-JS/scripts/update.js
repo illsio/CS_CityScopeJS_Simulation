@@ -7,7 +7,8 @@ import "babel-polyfill";
  */
 export async function update() {
   //temp solution to call this here
-  update_simulation();
+  //
+  // update_simulation();
 
   // get cityIO url from storage and
   // put cityIO data to storage after it's updated
@@ -51,8 +52,10 @@ export async function update_simulation() {
   /*
     https://github.com/samhermes/samhermes.github.io/blob/master/js/travel-map.js#L42
     */
+
   //deal with simulation data update and storage
   Storage.simData = await getCityIO(Storage.cityIOurl + "_sim");
+
   // make json out of it
   let sim_data_json = JSON.parse(Storage.simData.objects);
 
@@ -107,6 +110,7 @@ export function update_grid_from_cityio() {
 
   let cityIOdata = Storage.cityIOdata;
   let grid = Storage.threeGrid;
+
   // let textHolder = Storage.threeText;
 
   for (let i = 0; i < grid.children.length; i++) {
@@ -117,12 +121,12 @@ export function update_grid_from_cityio() {
     thisCell.position.z = 0;
     thisCell.scale.z = 1;
 
-    if (cityIOdata.grid[i] !== -1) {
+    if (cityIOdata.grid[i][0] !== -1) {
       thisCell.material.color.set(
-        array_of_types_and_colors[cityIOdata.grid[i]].color
+        array_of_types_and_colors[cityIOdata.grid[i][0]].color
       );
       let this_cell_height =
-        array_of_types_and_colors[cityIOdata.grid[i]].height + 1;
+        array_of_types_and_colors[cityIOdata.grid[i][0]].height + 1;
       thisCell.scale.z = this_cell_height;
       thisCell.position.z = this_cell_height / 2;
     } else {
