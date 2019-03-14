@@ -15,12 +15,6 @@ Modules are built to represent:
 
 ---
 
-## CityScopeJS ThreeJS+MAPBOX GL-JS
-
-WIP
-
----
-
 ## Walkability Module
 
 This module include an html5 3D view of walkability of a zone:
